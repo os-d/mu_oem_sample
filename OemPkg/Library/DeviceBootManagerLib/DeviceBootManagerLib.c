@@ -933,8 +933,11 @@ DeviceBootManagerPriorityBoot (
     }
   } else if (FrontPageBoot) {
     // Front Page Boot Option
-    DEBUG ((DEBUG_INFO, "[Bds] enter Front Page\n"));
-    Status = MsBootOptionsLibGetBootManagerMenu (BootOption, "VOL+");
+    DEBUG ((DEBUG_INFO, "[Bds] enter second partition\n"));
+    Status = MsBootOptionsLibGetDefaultBootApp (BootOption, "VOL+");
+    // DEBUG ((DEBUG_INFO, "[Bds] enter Front Page\n"));
+    // Status = MsBootOptionsLibGetBootManagerMenu (BootOption, "VOL+");
+
     SetRebootReason (OEM_REBOOT_TO_SETUP_KEY);
   } else {
     Status = EFI_NOT_FOUND;
